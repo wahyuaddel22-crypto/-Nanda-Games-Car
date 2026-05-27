@@ -35,7 +35,6 @@
             overflow-x: hidden;
         }
 
-        /* ====== INTRO / LANDING ====== */
         #intro {
             min-height: 100vh;
             display: flex;
@@ -128,11 +127,6 @@
             box-shadow: 0 0 45px rgba(230,57,70,0.8);
         }
 
-        .btn-custom:active {
-            transform: scale(0.98) translateY(0);
-        }
-
-        /* ====== SECTION LAYOUT ====== */
         section {
             min-height: 100vh;
             padding: 6rem 1.5rem;
@@ -156,7 +150,6 @@
             text-shadow: 0 0 25px rgba(230,57,70,0.5);
         }
 
-        /* ====== LOVE LETTER ====== */
         #letter {
             background: radial-gradient(ellipse at top, #25090f 0%, var(--dark) 70%);
         }
@@ -215,7 +208,6 @@
             font-weight: bold;
         }
 
-        /* ====== MEMORIES ====== */
         #memories {
             background: var(--asphalt);
         }
@@ -252,12 +244,6 @@
             position: relative;
         }
 
-        .memory-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .upload-btn {
             background: rgba(230,57,70,0.15);
             border: 1px dashed var(--red);
@@ -267,12 +253,6 @@
             font-size: 0.8rem;
             cursor: pointer;
             transition: background 0.2s;
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-        }
-
-        .upload-btn:hover {
-            background: rgba(230,57,70,0.4);
         }
 
         .memory-caption {
@@ -290,10 +270,8 @@
             font-size: 0.9rem;
             color: rgba(253,246,236,0.65);
             font-style: italic;
-            line-height: 1.4;
         }
 
-        /* ====== GAME CANVAS SYSTEM ====== */
         #game-section {
             background: radial-gradient(circle at center, #1b0c10 0%, var(--dark) 80%);
         }
@@ -337,10 +315,8 @@
             padding: 0.4rem 1rem;
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(4px);
             font-family: 'Racing Sans One', cursive;
             font-size: 1.1rem;
-            letter-spacing: 0.05em;
         }
 
         .hud-score { color: var(--gold); }
@@ -357,15 +333,12 @@
             text-align: center;
             padding: 2rem;
             z-index: 10;
-            backdrop-filter: blur(6px);
-            transition: opacity 0.3s ease;
         }
 
         .game-screen h2 {
             font-family: 'Racing Sans One', cursive;
             font-size: 2.5rem;
             color: var(--red);
-            text-shadow: 0 0 20px rgba(230,57,70,0.5);
             margin-bottom: 0.5rem;
         }
 
@@ -373,15 +346,6 @@
             color: rgba(253,246,236,0.8);
             margin-bottom: 2rem;
             font-size: 1rem;
-            max-width: 300px;
-            line-height: 1.5;
-        }
-
-        .control-notice {
-            font-size: 0.8rem !important;
-            color: var(--gold) !important;
-            margin-top: 1.5rem;
-            font-style: italic;
         }
 
         .touch-controls {
@@ -402,29 +366,11 @@
             cursor: pointer;
         }
 
-        .touch-btn:active {
-            background: var(--red);
-            box-shadow: 0 0 15px var(--red);
-        }
-
-        /* ====== ENDING ====== */
         #ending {
             background: radial-gradient(circle at center, #3a0d14 0%, var(--dark) 80%);
             text-align: center;
         }
 
-        .ending-box {
-            max-width: 600px;
-        }
-
-        .ending-msg {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
-            line-height: 1.8;
-            margin: 2rem 0;
-        }
-
-        /* ====== SYSTEM UI ====== */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -435,36 +381,11 @@
             color: var(--cream);
             padding: 0.8rem 2rem;
             border-radius: 50px;
-            font-size: 0.95rem;
             z-index: 9999;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            pointer-events: none;
-            font-weight: 500;
+            transition: transform 0.4s ease;
         }
 
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .sparkle {
-            position: fixed;
-            pointer-events: none;
-            background: var(--red);
-            border-radius: 50%;
-            z-index: 10000;
-            animation: explode 0.5s ease-out forwards;
-        }
-
-        @keyframes explode {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(0) translate(var(--mx), var(--my)); opacity: 0; }
-        }
-
-        @media(max-width: 500px) {
-            .letter-card { padding: 2.5rem 1.5rem; }
-            section { padding: 4rem 1rem; }
-        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
     </style>
 </head>
 <body>
@@ -474,7 +395,7 @@
     <section id="intro">
         <div class="road-lines"></div>
         <div class="intro-car">🏎️</div>
-        <h1 class="intro-title">LOVE AT<br>FULL SPEED</h1>
+        <h1 class="intro-title">LINTASAN CINTA</h1>
         <p class="intro-sub">Mengarungi Lintasan Takdir Bersamamu</p>
         <button class="btn-custom" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">MULAI PERJALANAN ❤️</button>
     </section>
@@ -482,25 +403,16 @@
     <section id="letter">
         <div class="letter-card">
             <div class="letter-stamp">💌</div>
-            <div class="letter-headline">Dear, Sayang ♡</div>
-            <div class="letter-date" id="letterDate"></div>
+            <div class="letter-headline">Dear, Nanda ♡</div>
+            <div class="letter-date">Let's Race Together</div>
             <div class="letter-body">
-                <p>Kalau hidup ini diibaratkan sirkuit balap, kamu adalah garis finis terbaik yang selalu ingin aku tuju. Tidak peduli seberapa tajam tikungan masalah atau seberapa melelahkan trek lurus rutinitas kita, melihat senyummu di ujung hari selalu membuatku siap menekan pedal gas lebih dalam.</p>
-                <p>Kamu bukan sekadar pendamping di kursi sebelah, kamu adalah navigator terbaikku. Seseorang yang tahu kapan aku harus mengerem sejenak untuk beristirahat, dan kapan aku harus melaju kencang mengejar impian.</p>
-                <p>Mini game di bawah ini dirancang khusus untukmu: visualisasinya sederhana, tapi merepresentasikan detak jantungku yang selalu terpacu maksimal setiap kali berada di dekatmu. Kumpulkan cinta kita dan mari berkendara berdampingan selamanya!</p>
+                <p>Kalau hidup ini diibaratkan sirkuit balap, kamu adalah garis finis terbaik yang selalu ingin aku tuju. Tidak peduli seberapa tajam tikungan masalah, melihat senyummu selalu membuatku siap menekan pedal gas lebih dalam.</p>
+                <p>Kumpulkan cinta kita di game bawah ini dan mari berkendara berdampingan selamanya!</p>
             </div>
-            <div class="letter-sig">Dengan segenap cintaku,<br>Kekasihmu ❤️</div>
         </div>
     </section>
 
-    <section id="memories">
-        <h2 class="section-title">LOG KENANGAN<br><span>BALAPAN KITA</span></h2>
-        <div class="memories-grid" id="memoriesGrid"></div>
-    </section>
-
     <section id="game-section">
-        <h2 class="section-title" style="margin-bottom: 2rem;">KENDALIKAN<br><span>LINTASAN CINTA</span></h2>
-        
         <div class="game-wrapper">
             <div class="canvas-container">
                 <div class="hud-overlay">
@@ -510,19 +422,17 @@
 
                 <div class="game-screen" id="screenStart">
                     <h2>STARTING GRID</h2>
-                    <p>Kumpulkan Hati (❤️) untuk mengisi energi cinta. Hindari Mobil Hambatan (⚠️) agar tidak terjadi crash!</p>
-                    <button class="btn-custom" onclick="gameEngine.start()">GAS POLL! 🏎️</button>
-                    <p class="control-notice">Gunakan tombol ◀ ▶ atau Panah Keyboard</p>
+                    <p>Kumpulkan Hati (❤️). Hindari Mobil Hambatan (⚠️) agar tidak crash!</p>
+                    <button class="btn-custom" id="startBtn">GAS POLL! 🏎️</button>
                 </div>
 
                 <div class="game-screen" id="screenOver" style="display: none;">
                     <h2>DNF / CRASHED!</h2>
                     <p id="gameOverStats">Kamu mengumpulkan 0 hati.</p>
-                    <p id="romanticQuote" style="color: var(--gold); font-style: italic; font-size: 0.9rem;"></p>
-                    <button class="btn-custom" onclick="gameEngine.start()">RE-START RACE</button>
+                    <button class="btn-custom" id="restartBtn">MAIN LAGI</button>
                 </div>
 
-                <canvas id="gameCanvas" width="450" height="600"></canvas>
+                <canvas id="gameCanvas" width="400" height="500"></canvas>
             </div>
 
             <div class="touch-controls">
@@ -532,316 +442,148 @@
         </div>
     </section>
 
-    <section id="ending">
-        <div class="ending-box">
-            <h2 class="section-title" style="font-size: 3.5rem;">🏆<br>PENGUASA<br><span>PODIUM HATIKU</span></h2>
-            <p class="ending-msg">Terima kasih telah menjadi bagian dari petualangan hidup yang luar biasa ini. Di lintasan mana pun takdir membawa kita nanti, aku pastikan posisiku akan selalu ada tepat di sebelahmu.</p>
-            <button class="btn-custom" onclick="triggerToast('I love you to the moon and back! 🏁💕')">KIRIM CINTA BALIK MAKSIMAL 🚀</button>
-        </div>
-    </section>
-
     <script>
         function triggerToast(text) {
             const t = document.getElementById('toast');
-            if (t) {
-                t.textContent = text;
-                t.classList.add('show');
-                setTimeout(() => t.classList.remove('show'), 3000);
-            }
-        }
-
-        window.addEventListener('click', (e) => {
-            if(e.target.tagName === 'BUTTON') return;
-            for(let i=0; i<8; i++) {
-                const s = document.createElement('div');
-                s.className = 'sparkle';
-                s.style.left = e.clientX + 'px';
-                s.style.top = e.clientY + 'px';
-                const angle = Math.random() * Math.PI * 2;
-                const speed = 20 + Math.random() * 40;
-                s.style.setProperty('--mx', Math.cos(angle) * speed + 'px');
-                s.style.setProperty('--my', Math.sin(angle) * speed + 'px');
-                s.style.width = s.style.height = (4 + Math.random() * 4) + 'px';
-                document.body.appendChild(s);
-                setTimeout(() => s.remove(), 500);
-            }
-        });
-
-        const dateOpt = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const dateElem = document.getElementById('letterDate');
-        if (dateElem) {
-            dateElem.textContent = `— Kudus, ${new Date().toLocaleDateString('id-ID', dateOpt)} —`;
-        }
-
-        const memoryCollection = [
-            { emoji: "🌅", title: "Lap Pertama", desc: "Saat semesta mempertemukan kita di garis start yang sama." },
-            { emoji: "🏎️", title: "Pit Stop Terbaik", desc: "Selalu bersamamu, tempatku pulang mengisi kembali energi." },
-            { emoji: "🌃", title: "Balapan Malam Hari", desc: "Gemerlap kota tidak pernah seindah kilau matamu di dalam mobil." },
-            { emoji: "🌊", title: "Rute Pantai Indah", desc: "Menikmati deburan ombak seirama dengan deru jantung kita." }
-        ];
-
-        const grid = document.getElementById('memoriesGrid');
-        if (grid) {
-            memoryCollection.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = 'memory-card';
-                card.innerHTML = `
-                    <div class="memory-photo" id="photoWrap-${index}">
-                        <button class="upload-btn" onclick="document.getElementById('file-${index}').click()">+ Unggah Momen</button>
-                        <input type="file" id="file-${index}" style="display:none" accept="image/*" onchange="loadPhoto(event, ${index})">
-                    </div>
-                    <div class="memory-caption">
-                        <h3>${item.title}</h3>
-                        <p>${item.desc}</p>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        function loadPhoto(event, index) {
-            const file = event.target.files;
-            if(file) {
-                const url = URL.createObjectURL(file);
-                const wrap = document.getElementById(`photoWrap-${index}`);
-                if (wrap) wrap.innerHTML = `<img src="${url}" alt="Memory Link">`;
-                triggerToast("Foto kenangan berhasil dimasukkan! 📸❤️");
-            }
+            t.textContent = text;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2000);
         }
 
         const canvas = document.getElementById('gameCanvas');
-        if (canvas) {
-            const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d');
 
-            const quotes = [
-                "Crash sedikit gak apa-apa, yang penting cinta kita gak pernah ambyar! 🥰",
-                "Fokus kendali sayang! Garis finish kebahagiaan menanti kita. 🏁",
-                "Kecepatan cintaku padamu melampaui batas maksimal sirkuit! 💨",
-                "Tabrakan biasa membuat mobil rusak, tapi senyummu membuat pertahananku runtuh! 😳"
-            ];
+        const gameEngine = {
+            active: false,
+            score: 0,
+            hearts: 0,
+            speed: 4,
+            playerX: 170,
+            playerLane: 1,
+            lanes:,
+            entities: [],
+            lastSpawn: 0,
 
-            const gameEngine = {
-                active: false,
-                score: 0,
-                hearts: 0,
-                speed: 5,
-                laneWidth: 90,
-                playerX: 180,
-                targetX: 180,
-                playerLane: 2,
-                lanes:,
-                entities: [],
-                bgStars: [],
-                lastSpawn: 0,
-
-                init() {
-                    this.bgStars = [];
-                    for(let i=0; i<40; i++) {
-                        this.bgStars.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, size: Math.random()*2, s: Math.random()*2+1 });
-                    }
-                    this.bindControls();
-                    this.drawMenu();
-                },
-
-                bindControls() {
-                    window.addEventListener('keydown', (e) => {
-                        if(!this.active) return;
-                        if(e.key === 'ArrowLeft' && this.playerLane > 0) { this.playerLane--; }
-                        if(e.key === 'ArrowRight' && this.playerLane < 3) { this.playerLane++; }
-                    });
-
-                    const lBtn = document.getElementById('leftBtn');
-                    const rBtn = document.getElementById('rightBtn');
-                    if (lBtn) lBtn.addEventListener('click', () => { if(this.active && this.playerLane > 0) this.playerLane--; });
-                    if (rBtn) rBtn.addEventListener('click', () => { if(this.active && this.playerLane < 3) this.playerLane++; });
-                },
-
-                start() {
-                    document.getElementById('screenStart').style.display = 'none';
-                    document.getElementById('screenOver').style.display = 'none';
-                    this.active = true;
-                    this.score = 0;
-                    this.hearts = 0;
-                    this.speed = 6;
-                    this.playerLane = 1;
-                    this.entities = [];
-                    this.playerX = this.lanes;
-                    this.targetX = this.lanes;
-                    triggerToast("BALAPAN DIMULAI! GO GO GO! 🏎️");
-                    this.loop();
-                },
-
-                gameOver() {
-                    this.active = false;
-                    document.getElementById('gameOverStats').textContent = `Kamu mengumpulkan total ${this.hearts} ❤️ dengan skor akhir ${Math.floor(this.score)}.`;
-                    document.getElementById('romanticQuote').textContent = quotes[Math.floor(Math.random()*quotes.length)];
-                    document.getElementById('screenOver').style.display = 'flex';
-                },
-
-                spawn() {
-                    const now = Date.now();
-                    if(now - this.lastSpawn > 900) {
-                        const randLane = Math.floor(Math.random()*4);
-                        const type = Math.random() > 0.4 ? 'obstacle' : 'heart';
-                        this.entities.push({
-                            x: this.lanes[randLane],
-                            y: -50,
-                            type: type,
-                            speedBoost: type === 'obstacle' ? Math.random()*1.5 : 0
-                        });
-                        this.lastSpawn = now;
-                    }
-                },
-
-                update() {
-                    this.score += 0.1;
-                    this.speed = 6 + Math.floor(this.score / 150);
-
-                    this.targetX = this.lanes[this.playerLane];
-                    this.playerX += (this.targetX - this.playerX) * 0.25;
-
-                    this.bgStars.forEach(st => {
-                        st.y += this.speed * 0.4;
-                        if(st.y > canvas.height) st.y = 0;
-                    });
-
-                    for(let i = this.entities.length - 1; i >= 0; i--) {
-                        let ent = this.entities[i];
-                        ent.y += this.speed + ent.speedBoost;
-
-                        if(Math.abs(ent.y - 500) < 45 && Math.abs(ent.x - this.playerX) < 32) {
-                            if(ent.type === 'heart') {
-                                this.hearts++;
-                                this.score += 30;
-                                triggerToast("Cinta Bertambah! +30 PTS ❤️");
-                                this.entities.splice(i, 1);
-                            } else {
-                                this.gameOver();
-                                return;
-                            }
-                            continue;
-                        }
-
-                        if(ent.y > canvas.height + 50) {
-                            this.entities.splice(i, 1);
-                        }
-                    }
-
-                    document.getElementById('hudHearts').textContent = `❤️ ${this.hearts}`;
-                    document.getElementById('hudScore').textContent = `SCORE: ${Math.floor(this.score)}`;
-                },
-
-                drawCar(x, y, isPlayer) {
-                    ctx.save();
-                    ctx.translate(x, y);
-
-                    if(isPlayer) {
-                        ctx.fillStyle = '#e63946';
-                        ctx.beginPath();
-                        ctx.roundRect(-16, -35, 32, 65, 6);
-                        ctx.fill();
-
-                        ctx.fillStyle = '#a2d2ff';
-                        ctx.beginPath();
-                        ctx.roundRect(-10, -12, 20, 18, 4);
-                        ctx.fill();
-
-                        ctx.fillStyle = '#9b1d24';
-                        ctx.fillRect(-22, 22, 44, 8);
-
-                        ctx.fillStyle = '#111';
-                        ctx.fillRect(-20, -25, 4, 12);
-                        ctx.fillRect(16, -25, 4, 12);
-                        ctx.fillRect(-21, 10, 5, 14);
-                        ctx.fillRect(16, 10, 5, 14);
-
-                        const fSize = 8 + Math.random()*8;
-                        ctx.fillStyle = '#ffb703';
-                        ctx.fillRect(-8, 30, 4, fSize);
-                        ctx.fillRect(4, 30, 4, fSize);
-                    } else {
-                        ctx.fillStyle = '#3d5a80';
-                        ctx.beginPath();
-                        ctx.roundRect(-16, -30, 32, 60, 6);
-                        ctx.fill();
-
-                        ctx.fillStyle = '#1d3557';
-                        ctx.beginPath();
-                        ctx.roundRect(-11, -8, 22, 16, 4);
-                        ctx.fill();
-
-                        ctx.fillStyle = '#fff3b0';
-                        ctx.fillRect(-12, 24, 6, 4);
-                        ctx.fillRect(6, 24, 6, 4);
-
-                        ctx.fillStyle = '#222';
-                        ctx.fillRect(-19, -20, 3, 10);
-                        ctx.fillRect(16, -20, 3, 10);
-                    }
-                    ctx.restore();
-                },
-
-                draw() {
-                    ctx.fillStyle = '#0f090d';
-                    ctx.fillRect(0,0, canvas.width, canvas.height);
-
-                    ctx.fillStyle = 'rgba(253,246,236,0.5)';
-                    this.bgStars.forEach(st => {
-                        ctx.fillRect(st.x, st.y, st.size, st.size);
-                    });
-
-                    ctx.fillStyle = '#161622';
-                    ctx.fillRect(15, 0, canvas.width - 30, canvas.height);
-
-                    ctx.fillStyle = 'rgba(230,57,70,0.4)';
-                    ctx.fillRect(15, 0, 4, canvas.height);
-                    ctx.fillRect(canvas.width - 19, 0, 4, canvas.height);
-
-                    ctx.fillStyle = 'rgba(201,168,76,0.2)';
-                    for(let laneIdx = 1; laneIdx < 4; laneIdx++) {
-                        let lx = laneIdx * 105 + 10;
-                        ctx.setLineDash();
-                        ctx.beginPath();
-                        ctx.moveTo(lx, 0);
-                        ctx.lineTo(lx, canvas.height);
-                        ctx.stroke();
-                    }
-                    ctx.setLineDash([]);
-
-                    this.entities.forEach(ent => {
-                        if(ent.type === 'heart') {
-                            ctx.save();
-                            ctx.translate(ent.x, ent.y);
-                            ctx.font = '28px sans-serif';
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = 'middle';
-                            ctx.fillText('❤️', 0, 0);
-                            ctx.restore();
-                        } else {
-                            this.drawCar(ent.x, ent.y, false);
-                        }
-                    });
-
-                    this.drawCar(this.playerX, 500, true);
-                },
-
-                drawMenu() {
-                    ctx.fillStyle = '#110b0e';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    this.draw();
-                },
-
-                loop() {
+            init() {
+                document.getElementById('startBtn').addEventListener('click', () => this.start());
+                document.getElementById('restartBtn').addEventListener('click', () => this.start());
+                
+                window.addEventListener('keydown', (e) => {
                     if(!this.active) return;
-                    this.spawn();
-                    this.update();
-                    this.draw();
-                    requestAnimationFrame(() => this.loop());
-                }
-            };
+                    if(e.key === 'ArrowLeft' && this.playerLane > 0) this.playerLane--;
+                    if(e.key === 'ArrowRight' && this.playerLane < 2) this.playerLane++;
+                });
 
-            gameEngine.init();
-        }
+                document.getElementById('leftBtn').addEventListener('click', () => {
+                    if(this.active && this.playerLane > 0) this.playerLane--;
+                });
+                document.getElementById('rightBtn').addEventListener('click', () => {
+                    if(this.active && this.playerLane < 2) this.playerLane++;
+                });
+
+                this.drawMenu();
+            },
+
+            start() {
+                document.getElementById('screenStart').style.display = 'none';
+                document.getElementById('screenOver').style.display = 'none';
+                this.active = true;
+                this.score = 0;
+                this.hearts = 0;
+                this.speed = 5;
+                this.playerLane = 1;
+                this.entities = [];
+                this.playerX = this.lanes;
+                this.loop();
+            },
+
+            gameOver() {
+                this.active = false;
+                document.getElementById('gameOverStats').textContent = `Kamu mendapatkan ${this.hearts} ❤️`;
+                document.getElementById('screenOver').style.display = 'flex';
+            },
+
+            spawn() {
+                const now = Date.now();
+                if(now - this.lastSpawn > 1000) {
+                    const randLane = Math.floor(Math.random() * 3);
+                    const type = Math.random() > 0.4 ? 'obstacle' : 'heart';
+                    this.entities.push({
+                        x: this.lanes[randLane],
+                        y: -50,
+                        type: type
+                    });
+                    this.lastSpawn = now;
+                }
+            },
+
+            update() {
+                this.score += 0.05;
+                this.playerX += (this.lanes[this.playerLane] - this.playerX) * 0.2;
+
+                for(let i = this.entities.length - 1; i >= 0; i--) {
+                    let ent = this.entities[i];
+                    ent.y += this.speed;
+
+                    if(Math.abs(ent.y - 420) < 40 && Math.abs(ent.x - this.playerX) < 40) {
+                        if(ent.type === 'heart') {
+                            this.hearts++;
+                            triggerToast("+1 Hati Cinta! ❤️");
+                            this.entities.splice(i, 1);
+                        } else {
+                            this.gameOver();
+                            return;
+                        }
+                        continue;
+                    }
+
+                    if(ent.y > canvas.height + 50) this.entities.splice(i, 1);
+                }
+
+                document.getElementById('hudHearts').textContent = `❤️ ${this.hearts}`;
+                document.getElementById('hudScore').textContent = `SCORE: ${Math.floor(this.score)}`;
+            },
+
+            draw() {
+                ctx.fillStyle = '#110b0e';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#1f141a';
+                ctx.fillRect(30, 0, canvas.width - 60, canvas.height);
+
+                ctx.strokeStyle = 'rgba(201,168,76,0.3)';
+                ctx.setLineDash();
+                ctx.beginPath();
+                ctx.moveTo(130, 0); ctx.lineTo(130, canvas.height);
+                ctx.moveTo(270, 0); ctx.lineTo(270, canvas.height);
+                ctx.stroke();
+                ctx.setLineDash([]);
+
+                this.entities.forEach(ent => {
+                    ctx.font = '30px Arial';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(ent.type === 'heart' ? '❤️' : '🚘', ent.x, ent.y);
+                });
+
+                ctx.font = '35px Arial';
+                ctx.fillText('🏎️', this.playerX, 420);
+            },
+
+            drawMenu() {
+                this.draw();
+            },
+
+            loop() {
+                if(!this.active) return;
+                this.spawn();
+                this.update();
+                this.draw();
+                requestAnimationFrame(() => this.loop());
+            }
+        };
+
+        gameEngine.init();
     </script>
 </body>
 </html>
